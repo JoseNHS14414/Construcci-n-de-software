@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolución de la Construcción de Software</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, #2c3e50, #4a69bd);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: #4a69bd;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            width: 50%;
+            padding: 20px 40px;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            transform: rotate(45deg);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            transform: rotate(45deg);
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: #4a69bd;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .timeline-desc {
+            margin-bottom: 15px;
+        }
+        
+        .timeline-milestone {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #4a69bd;
+            border: 4px solid #f5f7fa;
+            border-radius: 50%;
+            top: 30px;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-milestone {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-milestone {
+            left: -10px;
+        }
+        
+        .era {
+            text-align: center;
+            margin: 50px 0 30px;
+            position: relative;
+        }
+        
+        .era-title {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #2c3e50;
+            color: white;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .era::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 2px;
+            background: #ccc;
+            z-index: 0;
+        }
+        
+        .key-points {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+        
+        .key-points h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .key-points ul {
+            columns: 2;
+            column-gap: 30px;
+        }
+        
+        .key-points li {
+            margin-bottom: 10px;
+            break-inside: avoid;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+                left: 0 !important;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: -10px;
+                right: auto;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-milestone,
+            .timeline-item:nth-child(even) .timeline-milestone {
+                left: 20px;
+                right: auto;
+            }
+            
+            .key-points ul {
+                columns: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Evolución de la Construcción de Software</h1>
+            <p class="subtitle">Línea de tiempo con los hitos más importantes en el desarrollo de software</p>
+        </header>
+        
+        <div class="timeline">
+            <div class="era">
+                <h2 class="era-title">Era Pre-metodológica (1950s-1960s)</h2>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-milestone"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Década de 1950</div>
+                    <h3 class="timeline-title">Orígenes de la Programación</h3>
+                    <p class="timeline-desc">Desarrollo de los primeros lenguajes de programación como Fortran y COBOL. El software se consideraba un añadido al hardware.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-milestone"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">1968</div>
+                    <h3 class="timeline-title">Nacimiento de la Ingeniería de Software</h3>
+                    <p class="timeline-desc">Conferencia de la OTAN donde se acuñó el término "Ingeniería de Software" para abordar la "crisis del software" por proyectos que excedían presupuesto y tiempo.</p>
+                </div>
+            </div>
+            
+            <div class="era">
+                <h2 class="era-title">Era de las Metodologías Estructuradas (1970s-1980s)</h2>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-milestone"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">1970</div>
+                    <h3 class="timeline-title">Modelo en Cascada</h3>
+                    <p class="timeline-desc">Popularizado por Winston Royce como uno de los primeros enfoques sistemáticos para el desarrollo de software con fases secuenciales.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-milestone"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Década de 1980</div>
+                    <h3 class="timeline-title">Metodologías Estructuradas</h3>
+                    <p class="timeline-desc">Surgen metodologías como el Modelo en V y el Desarrollo en Espiral, introduciendo iteración y prototipado.</p>
+                </div>
+            </div>
+            
+            <div class="era">
+                <h2 class="era-title">Era de las Metodologías Ágiles (1990s-2000s)</h2>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-milestone"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">1990s</div>
+                    <h3 class="timeline-title">Métodos Ligeros</h3>
+                    <p class="timeline-desc">Surgimiento de métodos como Scrum, XP (Extreme Programming) y Crystal como respuesta a la rigidez de las metodologías tradicionales.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-milestone"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">2001</div>
+                    <h3 class="timeline-title">Manifiesto Ágil</h3>
+                    <p class="timeline-desc">17 expertos publican el Manifiesto Ágil, priorizando "Individuos e interacciones sobre procesos y herramientas" y "Software funcionando sobre documentación extensiva".</p>
+                </div>
+            </div>
+            
+            <div class="era">
+                <h2 class="era-title">Era Moderna (2010s-Presente)</h2>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-milestone"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">2010s</div>
+                    <h3 class="timeline-title">DevOps y Continuous Delivery</h3>
+                    <p class="timeline-desc">Integración de desarrollo y operaciones para lograr entregas más rápidas y frecuentes. Adopción masiva de prácticas ágiles a escala.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-milestone"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">2020s</div>
+                    <h3 class="timeline-title">IA en Desarrollo</h3>
+                    <p class="timeline-desc">Incorporación de inteligencia artificial para generación de código, testing automatizado y optimización de procesos de desarrollo.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-milestone"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">2025 (Proyección)</div>
+                    <h3 class="timeline-title">Velocidad y Adaptabilidad</h3>
+                    <p class="timeline-desc">Según las proyecciones, el desarrollo se caracteriza por velocidad, calidad y adaptación rápida a demandas del mercado con foco en sostenibilidad y escalabilidad.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="key-points">
+            <h2>Buenas Prácticas Clave en la Construcción de Software</h2>
+            <ul>
+                <li>Definir un Producto Mínimo Viable (MVP)</li>
+                <li>Elegir bien el marco de trabajo y tecnologías</li>
+                <li>Crear código simple y evitar sobre-diseño</li>
+                <li>Utilizar guías de estilo para consistencia</li>
+                <li>Probar el software rigurosamente desde etapas tempranas</li>
+                <li>Revisar el código entre pares</li>
+                <li>Planificar y estimar de forma realista</li>
+                <li>Documentar lo necesario (código, procesos, decisiones)</li>
+                <li>Mantener el equipo alineado y comunicado</li>
+                <li>Establecer límites claros de alcance, presupuesto y tiempo</li>
+            </ul>
+        </div>
+        
+        <footer>
+            <p>Infografía basada en el documento "construccion d esoftware.pdf"</p>
+            <p>© 2023 - Evolución de la Construcción de Software</p>
+        </footer>
+    </div>
+</body>
+</html>
