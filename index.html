@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolución del Existencialismo y Debate sobre Dios</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+        
+        body {
+            background-color: #f8f5f0;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #3a2c4a, #6a4c93);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: #6a4c93;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            width: 50%;
+            padding: 20px 40px;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #6a4c93;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            transform: rotate(45deg);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            transform: rotate(45deg);
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: #6a4c93;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #3a2c4a;
+        }
+        
+        .timeline-author {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .timeline-desc {
+            margin-bottom: 15px;
+        }
+        
+        .timeline-milestone {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #6a4c93;
+            border: 4px solid #f8f5f0;
+            border-radius: 50%;
+            top: 30px;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-milestone {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-milestone {
+            left: -10px;
+        }
+        
+        .era {
+            text-align: center;
+            margin: 50px 0 30px;
+            position: relative;
+        }
+        
+        .era-title {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #3a2c4a;
+            color: white;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .era::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 2px;
+            background: #ccc;
+            z-index: 0;
+        }
+        
+        .key-concepts {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+        
+        .key-concepts h2 {
+            color: #3a2c4a;
+            margin-bottom: 20px;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .concept-group {
+            margin-bottom: 25px;
+        }
+        
+        .concept-title {
+            font-size: 1.3rem;
+            color: #6a4c93;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #6a4c93;
+        }
+        
+        .concept-list {
+            list-style-type: none;
+        }
+        
+        .concept-list li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .concept-list li::before {
+            content: '•';
+            color: #6a4c93;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .quote-section {
+            background: linear-gradient(135deg, #f0e6ff, #e2d1f9);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            border-left: 5px solid #6a4c93;
+        }
+        
+        .quote-section h2 {
+            color: #3a2c4a;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .quote {
+            font-style: italic;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #3a2c4a;
+            margin-bottom: 15px;
+            padding: 0 20px;
+            position: relative;
+        }
+        
+        .quote::before, .quote::after {
+            content: '"';
+            font-size: 2rem;
+            color: #6a4c93;
+            position: absolute;
+        }
+        
+        .quote::before {
+            left: 0;
+            top: -10px;
+        }
+        
+        .quote::after {
+            right: 0;
+            bottom: -20px;
+        }
+        
+        .author {
+            text-align: right;
+            color: #666;
+            font-weight: bold;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+                left: 0 !important;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: -10px;
+                right: auto;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-milestone,
+            .timeline-item:nth-child(even) .timeline-milestone {
+                left: 20px;
+                right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Evolución del Existencialismo y Debate sobre la Existencia de Dios</h1>
+            <p class="subtitle">Línea de tiempo con autores clave y sus contribuciones al debate filosófico</p>
+        </header>
+        
+        <div class="timeline">
+            <div class="era">
+                <h2 class="era-title">Antecedentes Filosóficos (Siglo XIII - XVII)</h2>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-milestone"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">1265-1274</div>
+                    <h3 class="timeline-title">La Quinta Vía de Santo Tomás de Aquino</h3>
+                    <div class="timeline-author">Santo Tomás de Aquino</div>
+                    <p class="timeline-desc">Formulación del argumento cosmológico que postula que el orden, la finalidad y el movimiento en el universo requieren una Primera Causa o Primer Motor inteligente (Dios).</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-milestone"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Siglo XVII</div>
+                    <h3 class="timeline-title">La Paradoja de Epicuro reformulada</h3>
+                    <div class="timeline-author">David Hume y otros</div>
+                    <p class="timeline-desc">Formulación moderna del problema del mal: si Dios es omnipotente, omnisciente y omnibenevolente, ¿cómo puede existir el mal en el mundo?</p>
+                </div>
+            </div>
+            
+            <div class="era">
+                <h2 class="era-title">Orígenes del Existencialismo (Siglo XIX)</h2>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-milestone"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">1813-1855</div>
+                    <h3 class="timeline-title">El Padre del Existencialismo</h3>
+                    <div class="timeline-author">Søren Kierkegaard</div>
+                    <p class="timeline-desc">Enfatizó la subjetividad, la elección individual y la angustia existencial. Criticó el cristianismo institucional y abogó por una fe personal y apasionada.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-milestone"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">1844-1900</div>
+                    <h3 class="timeline-title">La Muerte de Dios</h3>
+                    <div class="timeline-author">Friedrich Nietzsche</div>
+                    <p class="timeline-desc">Proclamó que "Dios ha muerto" y criticó los valores tradicionales, abogando por la creación de nuevos valores a través de la voluntad de poder.</p>
+                </div>
+            </div>
+            
+            <div class="era">
+                <h2 class="era-title">Existencialismo del Siglo XX</h2>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-milestone"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">1889-1976</div>
+                    <h3 class="timeline-title">El Existencialismo es un Humanismo</h3>
+                    <div class="timeline-author">Martin Heidegger</div>
+                    <p class="timeline-desc">Exploró el concepto de "Dasein" (ser-ahí) y la importancia de la autenticidad frente a la existencia inauténtica de la vida cotidiana.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-milestone"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">1905-1980</div>
+                    <h3 class="timeline-title">El Existencialismo ateo</h3>
+                    <div class="timeline-author">Jean-Paul Sartre</div>
+                    <p class="timeline-desc">Afirmó que "la existencia precede a la esencia" y que el ser humano está condenado a ser libre, sin excusas para sus elecciones.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-milestone"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">1903-1950</div>
+                    <h3 class="timeline-title">El Mito de Sísifo</h3>
+                    <div class="timeline-author">Albert Camus</div>
+                    <p class="timeline-desc">Desarrolló la filosofía del absurdo: la confrontación entre la búsqueda humana de significado y el silencio irracional del universo.</p>
+                </div>
+            </div>
+            
+            <div class="era">
+                <h2 class="era-title">Diálogo Contemporáneo (Siglo XX-XXI)</h2>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-milestone"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">1903-1993</div>
+                    <h3 class="timeline-title">El Principio de Responsabilidad</h3>
+                    <div class="timeline-author">Hans Jonas</div>
+                    <p class="timeline-desc">Intentó integrar la tensión entre lo permanente y lo mutable del hombre, abordando la ética en la era tecnológica.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-milestone"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Nacido en 1952</div>
+                    <h3 class="timeline-title">Gramática de la Multitud</h3>
+                    <div class="timeline-author">Paolo Virno</div>
+                    <p class="timeline-desc">Contribuyó a la integración transdisciplinaria entre la biología evolucionista y la filosofía existencialista.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-milestone"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Década de 1980</div>
+                    <h3 class="timeline-title">Experimentos sobre Libre Albedrío</h3>
+                    <div class="timeline-author">Benjamin Libet</div>
+                    <p class="timeline-desc">Realizó experimentos que sugerían actividad cerebral inconsciente antes de la decisión consciente, generando debate sobre la naturaleza del libre albedrío.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="key-concepts">
+            <h2>Conceptos Clave en el Debate</h2>
+            
+            <div class="concept-group">
+                <h3 class="concept-title">Integración Disciplinar</h3>
+                <ul class="concept-list">
+                    <li>La biología evolucionista ve al hombre desde un "desde siempre" (lo natural, permanente)</li>
+                    <li>La filosofía existencialista lo ve desde un "precisamente ahora" (lo histórico-social, mutable)</li>
+                    <li>La verdadera transdisciplinariedad recupera la tensión entre lo permanente y lo mutable</li>
+                </ul>
+            </div>
+            
+            <div class="concept-group">
+                <h3 class="concept-title">Ciencia vs. Filosofía</h3>
+                <ul class="concept-list">
+                    <li>La ciencia explica "cómo" funcionan los fenómenos (causalidad material)</li>
+                    <li>La filosofía aborda el "por qué" (causa final, propósito, sentido)</li>
+                    <li>Critica al cientificismo como doctrina filosófica, no como conclusión científica</li>
+                </ul>
+            </div>
+            
+            <div class="concept-group">
+                <h3 class="concept-title">Argumentos sobre Dios</h3>
+                <ul class="concept-list">
+                    <li>El argumento cosmológico postula una Primera Causa inteligente</li>
+                    <li>El progreso científico (Big Bang, ajuste fino) refuerza el argumento del orden</li>
+                    <li>La existencia del mal representa la "paradoja de Epicuro" para la omnibenevolencia divina</li>
+                </ul>
+            </div>
+            
+            <div class="concept-group">
+                <h3 class="concept-title">Libre Albedrío</h3>
+                <ul class="concept-list">
+                    <li>Condición necesaria para la moralidad y responsabilidad humana</li>
+                    <li>La neurociencia no ha demostrado su existencia o inexistencia</li>
+                    <li>Podría ser una realidad no cuantificable por el método científico</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="quote-section">
+            <h2>Reflexiones Destacadas</h2>
+            <div class="quote">
+                La ciencia y la fe ofrecen distintas perspectivas de la verdad. La ciencia ayuda a entender "cómo" el universo funciona, mientras que la fe proporciona el significado existencial y propósito.
+            </div>
+            <div class="author">- UNCiencia, Universidad Nacional de Córdoba</div>
+            
+            <div class="quote" style="margin-top: 30px;">
+                El libre albedrío es una condición necesaria para la moralidad y la responsabilidad humana. Se define por la posibilidad real de elegir entre diferentes cursos de acción.
+            </div>
+            <div class="author">- Richard, A. D. (2019)</div>
+            
+            <div class="quote" style="margin-top: 30px;">
+                La existencia del mal es un problema central para la existencia de un Dios omnipotente, omnisciente y omnibenevolente.
+            </div>
+            <div class="author">- Wikipedia: Problema del mal</div>
+        </div>
+        
+        <footer>
+            <p>Infografía basada en el documento "El existencialismo - debate.pdf"</p>
+            <p>© 2023 - Evolución del Pensamiento Existencialista y Debate sobre Dios</p>
+        </footer>
+    </div>
+</body>
+</html>
